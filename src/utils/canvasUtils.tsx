@@ -1,4 +1,4 @@
-import { rowCalculatorItems } from '../slice/dragAndDropSlice';
+import { rowCalculatorItems } from '../components/calculator/Calculator'; 
 import { AppDispatch, IRow } from '../types/types';
 
 export function handleDrop(
@@ -12,13 +12,12 @@ export function handleDrop(
   if (runTime) return;
   if ((e.target as HTMLElement)?.closest('.calculator__row')) return;
   if (canvas.length > 4) return;
-  if (canvas.some((e) => e?.id === currentRowId)) return;
-
+  if (canvas.some((el) => el?.id === currentRowId)) return;
   if (currentRowId) {
     const newRow = rowCalculatorItems.filter((e) => {
       return e.id === currentRowId;
     });
-    setCanvas((oldRow) => [...oldRow, ...newRow]);
+    setCanvas((oldRows) => [...oldRows, ...newRow]);
   }
 }
 

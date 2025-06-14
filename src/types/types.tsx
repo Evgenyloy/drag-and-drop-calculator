@@ -45,3 +45,11 @@ export interface ICanvasButtonProps {
   id: string;
   text: string;
 }
+
+export interface IInitialCalculatorState {
+  currentOperand: string;
+  previousOperand: string;
+  operation: string;
+  overwrite: boolean;
+  runTime: boolean;
+}

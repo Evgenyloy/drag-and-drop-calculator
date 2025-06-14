@@ -12,12 +12,12 @@ import {
   handleDrop,
 } from '../../utils/dragAndDropUtils';
 import { useSwapRows } from '../../hooks/useSwapRows';
-import { useOperation } from '../../hooks/useOperation';
+import { useOperationSelector } from '../../hooks/useOperation';
 
 function Row3({ canvas, setCanvas, field }: IRowProps) {
   const [dragOverClass, setDragOverClass] = useState('');
   const [dragStartClass, setDragStartClass] = useState('');
-  const { currentRowId, runTime, dispatch } = useOperation();
+  const { currentRowId, runTime, dispatch } = useOperationSelector();
   const { className, draggable } = useDragAndDrop(canvas, field, '3');
   const { setCurrentRow, setCurrentRowIndex, setLyingRow, setLyingRowIndex } =
     useSwapRows(setCanvas, canvas, currentRowId, field);

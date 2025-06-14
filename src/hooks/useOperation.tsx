@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from './useReduxHooks';
 
-export function useOperation() {
+export function useOperationSelector() {
   const dispatch = useAppDispatch();
   const operation = useAppSelector((state) => state.calculator.operation);
   const currentOperand = useAppSelector(

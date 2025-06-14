@@ -97,6 +97,7 @@
     margin-bottom: 5px;
     text-align: right;
     height: 14px;
+    
   }
   &__current-operand {
     font-size: 25px;
@@ -116,7 +117,15 @@
 
 .disable {
   opacity: 20%;
+ 
 }
+
+.calculator__row.calculator__row-1.disable  {
+  .calculator__previous-operand, .calculator__current-operand{
+    display: none;
+  }
+}
+
 .calculator__digit-button.hover-btns-off,
 .calculator__operation-button.hover-btns-off,
 .calculator__evaluate.hover-btns-off {

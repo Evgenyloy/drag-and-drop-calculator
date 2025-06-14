@@ -1,13 +1,13 @@
 import React from 'react';
 import { IoImages } from 'react-icons/io5';
 import { ICanvasProps } from '../../types/types';
-import { useOperation } from '../../hooks/useOperation';
+import { useOperationSelector } from '../../hooks/useOperation';
 import { handleDrop } from '../../utils/canvasUtils';
 import CanvasButton from './CanvasButton';
 import './canvas.scss';
 
 function Canvas({ canvas, setCanvas }: ICanvasProps) {
-  const { currentRowId, runTime } = useOperation();
+  const { currentRowId, runTime } = useOperationSelector();
 
   return (
     <div

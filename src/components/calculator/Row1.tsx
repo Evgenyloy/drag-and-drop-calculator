@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { IRowProps } from '../../types/types';
-import { useDragAndDrop } from '../../hooks/useDragAndDrop';
 import {
   disableChecker,
   handleDoubleClick,
@@ -10,8 +9,9 @@ import {
   handleDragStart,
   handleDrop,
 } from '../../utils/dragAndDropUtils';
+import { useDragAndDrop } from '../../hooks/useDragAndDrop';
 import { useSwapRows } from '../../hooks/useSwapRows';
-import { useOperation } from '../../hooks/useOperation';
+import { useOperationSelector } from '../../hooks/useOperation';
 
 const Row1 = ({ canvas, setCanvas, field }: IRowProps) => {
   const [dragOverClass, setDragOverClass] = useState('');
@@ -24,7 +24,7 @@ const Row1 = ({ canvas, setCanvas, field }: IRowProps) => {
     currentRowId,
     runTime,
     dispatch,
-  } = useOperation();
+  } = useOperationSelector();
   const { setCurrentRow, setCurrentRowIndex, setLyingRow, setLyingRowIndex } =
     useSwapRows(setCanvas, canvas, currentRowId, field);
   const disableCheck = disableChecker(className, '1');

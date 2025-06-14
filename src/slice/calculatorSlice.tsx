@@ -1,15 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { evaluate } from '../utils/calculatorUtils';
+import { IInitialCalculatorState } from '../types/types';
 
-interface IInitialState {
-  currentOperand: string;
-  previousOperand: string;
-  operation: string;
-  overwrite: boolean;
-  runTime: boolean;
-}
 
-const initialState: IInitialState = {
+
+const initialState: IInitialCalculatorState = {
   currentOperand: '',
   previousOperand: '',
   operation: '',

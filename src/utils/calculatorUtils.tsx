@@ -9,20 +9,20 @@ export function evaluate({
 }) {
   const prev = parseFloat(previousOperand);
   const current = parseFloat(currentOperand);
-  if (isNaN(prev) || isNaN(current)) return '';
+  if (isNaN(prev) || isNaN(current)) return "";
 
   let computation: number = 0;
   switch (operation) {
-    case '+':
+    case "+":
       computation = prev + current;
       break;
-    case '-':
+    case "-":
       computation = prev - current;
       break;
-    case '*':
+    case "*":
       computation = prev * current;
       break;
-    case '/':
+    case "/":
       computation = prev / current;
       break;
   }

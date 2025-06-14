@@ -1,5 +1,6 @@
-import { rowCalculatorItems, setCurrentRowId } from '../slice/dragAndDropSlice';
-import { AppDispatch, IRow } from '../types/types';
+import { rowCalculatorItems } from "../components/calculator/Calculator";
+import { setCurrentRowId } from "../slice/dragAndDropSlice";
+import { AppDispatch, IRow } from "../types/types";
 
 export function handleDragStart(
   e: React.DragEvent<HTMLDivElement>,
@@ -8,7 +9,7 @@ export function handleDragStart(
 ) {
   if (!(e.target instanceof HTMLElement)) return;
   dispatch(setCurrentRowId(e.target.id));
-  setDragStartClass('drag-start');
+  setDragStartClass("drag-start");
 }
 
 export function handleDragOver(
@@ -18,9 +19,9 @@ export function handleDragOver(
 ) {
   if (!(e.target instanceof HTMLElement)) return;
   e.preventDefault();
-  if (field === 'canvas') {
+  if (field === "canvas") {
     if (!e.currentTarget.contains(e.relatedTarget as HTMLElement)) {
-      setDragOverClass('drop-over');
+      setDragOverClass("drop-over");
     }
   }
 }
@@ -39,7 +40,7 @@ export function handleDrop(
   if (disableCheck) return;
   if (!(e.target instanceof HTMLElement)) return;
   e.preventDefault();
-  const rowOnCanvasId = (e.target?.closest('.calculator__row') as HTMLElement)
+  const rowOnCanvasId = (e.target?.closest(".calculator__row") as HTMLElement)
     ?.id;
 
   canvas?.forEach((row) => {
@@ -65,7 +66,7 @@ export function handleDrop(
   });
 
   if (!e.currentTarget.contains(e.relatedTarget as HTMLElement)) {
-    setDragOverClass('');
+    setDragOverClass("");
   }
 }
 
@@ -77,9 +78,9 @@ export function handleDragEnd(
   if (!(event.target instanceof HTMLElement)) return;
 
   if (!event.currentTarget.contains(event.relatedTarget as HTMLElement)) {
-    setDragOverClass('');
+    setDragOverClass("");
   }
-  setDragStartClass('');
+  setDragStartClass("");
 }
 
 export function handleDragLeave(
@@ -89,7 +90,7 @@ export function handleDragLeave(
   if (!(event.target instanceof HTMLElement)) return;
 
   if (!event.currentTarget.contains(event.relatedTarget as HTMLElement)) {
-    setDragOverClass('');
+    setDragOverClass("");
   }
 }
 
